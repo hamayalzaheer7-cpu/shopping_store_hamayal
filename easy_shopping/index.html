@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Sets the character encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- Makes the website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Adds a short description of the website -->
+    <meta
+      name="description"
+      content="Shop everyday products at Easy Shopping."
+    />
+
+    <!-- Sets the browser tab title -->
+    <title>Easy Shopping | Home</title>
+
+    <!-- Connects the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- Navbar will be displayed here -->
+    <div id="navbar"></div>
+
+    <main class="container">
+
+      <!-- Main banner section -->
+      <section class="hero">
+        <h1>Good things, made easy.</h1>
+
+        <p>
+          Find useful everyday pieces, browse at your own pace and shop with
+          ease.
+        </p>
+
+        <!-- Takes the user to the products section -->
+        <a class="btn" href="#products">Explore the collection</a>
+      </section>
+
+      <!-- Heading for the products section -->
+      <h2 id="products" class="section-title">Shop the collection</h2>
+
+      <!-- Products will be displayed here using JavaScript -->
+      <div id="productList" class="grid"></div>
+
+      <!-- Information section about the store -->
+      <section class="section-title">
+        <h2>A simpler way to shop</h2>
+
+        <p>
+          Thoughtful everyday finds, clear prices and a straightforward shopping
+          experience.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- Footer will be displayed here -->
+    <div id="footer"></div>
+
+    <!-- Connects the navbar and footer JavaScript file -->
+    <script src="navbar.js"></script>
+
+    <!-- Connects the user login and authentication functions -->
+    <script src="auth.js"></script>
+
+    <!-- Connects the product display and shopping functions -->
+    <script src="script.js"></script>
+
+  </body>
+</html>

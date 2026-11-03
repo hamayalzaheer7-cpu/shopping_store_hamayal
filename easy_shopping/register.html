@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Sets the character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the website responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Adds a short description of the page -->
+  <meta name="description" content="Create your Easy Shopping account.">
+
+  <title>Create Account</title>
+
+  <!-- Connects the CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Navbar will be displayed here -->
+  <div id="navbar"></div>
+
+  <main class="container">
+
+    <!-- Registration form calls registerUser when submitted -->
+    <form class="form-box" onsubmit="registerUser(event)">
+
+      <h1>Create your account</h1>
+
+      <p class="small">Sign up to keep your cart and orders in one place.</p>
+
+      <label>Full name</label>
+      <input id="name" required>
+
+      <label>Email address</label>
+      <input id="email" type="email" required>
+
+      <label>Password</label>
+
+      <!-- Requires a password of at least 6 characters -->
+      <input id="password" type="password" minlength="6" required>
+
+      <button type="submit">Create account</button>
+
+      <!-- Displays registration messages -->
+      <p id="message"></p>
+
+      <p class="small">
+        Already registered? <a href="login.html">Login here</a>
+      </p>
+
+    </form>
+
+  </main>
+
+  <!-- Footer will be displayed here -->
+  <div id="footer"></div>
+
+  <!-- Connects the navbar JavaScript file -->
+  <script src="navbar.js"></script>
+
+  <script>
+
+    // Registers a new user
+    function registerUser(e) {
+
+      // Prevents the page from reloading
+      e.preventDefault();
+
+      // Gets existing users from LocalStorage
+      // Creates an empty array if no users exist
+      var users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Gets the name and removes extra spaces
+      var name = document.getElementById("name").value.trim();
+
+      // Gets the email, removes extra spaces and converts it to lowercase
+      var email = document.getElementById("email").value.trim().toLowerCase();
+
+      // Gets the entered password
+      var password = document.getElementById("password").value;
+
+      // Checks if the email is already registered
+      if (users.some(function(u) {
+        return u.email === email;
+      })) {
+
+        // Displays an error if the email already exists
+        document.getElementById("message").innerText =
+          "This email is already registered.";
+
+        return;
+      }
+
+      // Adds the new user's details to the users array
+      users.push({
+        name: name,
+        email: email,
+        password: password
+      });
+
+      // Saves the updated users array in LocalStorage
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // Shows a success message
+      alert("Account created. Please login.");
+
+      // Redirects the user to the login page
+      location.href = "login.html";
+    }
+
+  </script>
+
+</body>
+</html>

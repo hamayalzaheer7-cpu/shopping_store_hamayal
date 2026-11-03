@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <!-- Sets the character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the website responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Adds a short description of the page -->
+  <meta name="description" content="Your Easy Shopping account and order history.">
+
+  <title>My Account</title>
+
+  <!-- Connects the CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Navbar will be displayed here -->
+  <div id="navbar"></div>
+
+  <main class="container">
+
+    <!-- Displays the logged-in user's name -->
+    <h1 id="welcome">My Account</h1>
+
+    <!-- Displays account summary cards -->
+    <div class="grid">
+
+      <div class="card card-body">
+
+        <!-- Shows the total number of orders -->
+        <p class="small">Your orders</p>
+
+        <h2 id="orderCount">0</h2>
+
+      </div>
+
+      <div class="card card-body">
+
+        <!-- Shows the total amount spent -->
+        <p class="small">Total spent</p>
+
+        <h2 id="spent">Rs. 0</h2>
+
+      </div>
+
+    </div>
+
+    <!-- Heading for the order history section -->
+    <h2 class="section-title">My order history</h2>
+
+    <!-- Makes the table scrollable on small screens -->
+    <div class="table-wrap">
+
+      <table>
+
+        <!-- Table column headings -->
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <!-- Orders will be displayed here using JavaScript -->
+        <tbody id="myOrders"></tbody>
+
+      </table>
+
+    </div>
+
+  </main>
+
+  <!-- Footer will be displayed here -->
+  <div id="footer"></div>
+
+  <!-- Connects the navbar JavaScript file -->
+  <script src="navbar.js"></script>
+
+  <!-- Connects the authentication functions -->
+  <script src="auth.js"></script>
+
+  <!-- Connects the account and order history functions -->
+  <script src="user.js"></script>
+
+</body>
+</html>

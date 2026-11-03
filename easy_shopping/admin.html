@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Easy Shopping admin dashboard." />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <main class="container">
+      <div id="adminLogin" class="form-box">
+        <h1>Admin login</h1>
+        <form onsubmit="adminLogin(event)">
+          <label>Admin password</label
+          ><input id="adminPassword" type="password" required />
+          <button type="submit">Login to dashboard</button>
+        </form>
+        <p class="small">Demo password: admin123</p>
+      </div>
+      <div id="adminPanel" style="display: none">
+        <div class="actions">
+          <h1>Store dashboard</h1>
+          <button class="btn-danger" onclick="adminLogout()">
+            Admin logout
+          </button>
+        </div>
+        <div class="grid">
+          <div class="card card-body">
+            <p class="small">Products</p>
+            <h2 id="productCount">0</h2>
+          </div>
+          <div class="card card-body">
+            <p class="small">Orders</p>
+            <h2 id="orderCount">0</h2>
+          </div>
+        </div>
+        <h2 class="section-title">Add or edit product</h2>
+        <form id="productForm" class="form-box" onsubmit="saveProduct(event)">
+          <input type="hidden" id="productId" />
+          <label>Product name</label><input id="productName" required />
+          <label>Price</label
+          ><input id="productPrice" type="number" min="1" required />
+          <label>Description</label
+          ><textarea id="productDescription"></textarea>
+          <label>Product image</label
+          ><input id="productImage" type="file" accept="image/*" /><img
+            id="imagePreview"
+            style="
+              display: none;
+              width: 120px;
+              height: 100px;
+              object-fit: cover;
+              margin-bottom: 12px;
+            "
+          />
+          <button type="submit">Save product</button>
+        </form>
+        <h2 class="section-title">Products</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminProducts"></tbody>
+          </table>
+        </div>
+        <h2 class="section-title">Customer orders</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="adminOrders"></tbody>
+          </table>
+        </div>
+        <h2 class="section-title">Customer messages</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody id="adminMessages"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <div id="footer"></div>
+    <script src="navbar.js"></script>
+    <script src="admin.js"></script>
+    <script>
+      showAdmin();
+    </script>
+  </body>
+</html>

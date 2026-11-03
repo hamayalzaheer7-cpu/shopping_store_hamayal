@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Sets the character encoding -->
+    <meta charset="UTF-8" />
+
+    <!-- Makes the website responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Adds a short description of the page -->
+    <meta name="description" content="Login to your Easy Shopping account." />
+
+    <!-- Sets the browser tab title -->
+    <title>Login</title>
+
+    <!-- Connects the CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <!-- Navbar will be displayed here -->
+    <div id="navbar"></div>
+
+    <main class="container">
+
+      <!-- Login form calls loginUser when submitted -->
+      <form class="form-box" onsubmit="loginUser(event)">
+
+        <h1>Welcome back</h1>
+
+        <p class="small">Login to see your own cart and orders.</p>
+
+        <label>Email address</label>
+        <input id="email" type="email" required />
+
+        <label>Password</label>
+        <input id="password" type="password" required />
+
+        <button type="submit">Login</button>
+
+        <!-- Displays login error messages -->
+        <p id="message"></p>
+
+        <p class="small">
+          New here? <a href="register.html">Create an account</a>
+
+          <!-- Opens the admin dashboard in a new tab -->
+          <a class="btn" href="admin.html" target="_blank">ADMIN</a>
+        </p>
+
+      </form>
+    </main>
+
+    <!-- Footer will be displayed here -->
+    <div id="footer"></div>
+
+    <!-- Connects the navbar JavaScript file -->
+    <script src="navbar.js"></script>
+
+    <script>
+
+      // Checks the user's login details
+      function loginUser(e) {
+
+        // Prevents the page from reloading
+        e.preventDefault();
+
+        // Gets the email and removes extra spaces
+        // Converts the email to lowercase
+        var email = document.getElementById("email").value.trim().toLowerCase();
+
+        // Gets the entered password
+        var password = document.getElementById("password").value;
+
+        // Gets all registered users from LocalStorage
+        // Creates an empty array if no users exist
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Searches for a user with matching email and password
+        var user = users.find(function (u) {
+          return u.email === email && u.password === password;
+        });
+
+        // Checks if the user was found
+        if (user) {
+
+          // Saves the logged-in user's details in LocalStorage
+          localStorage.setItem(
+            "currentUser",
+            JSON.stringify({ name: user.name, email: user.email }),
+          );
+
+          // Redirects the user to the home page
+          location.href = "index.html";
+
+        } else {
+
+          // Displays an error if login details are incorrect
+          document.getElementById("message").innerText =
+            "Email or password is incorrect.";
+        }
+      }
+
+    </script>
+
+  </body>
+</html>

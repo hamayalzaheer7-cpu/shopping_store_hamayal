@@ -1,0 +1,393 @@
+/* Main colour variables used throughout the website */
+:root {
+  --burgundy: #702D3D;
+  --dark-wine: #51202D;
+  --ivory: #F8F4EC;
+  --beige: #E9DFD2;
+  --rose: #D8B9A5;
+  --text: #30272A;
+  --white: #FFFFFF;
+}
+
+/* Applies basic settings to all elements */
+* {
+  box-sizing: border-box;
+}
+
+/* Styles the complete webpage */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--ivory);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Removes underline from all links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Styles the navigation bar */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid var(--beige);
+  padding: 18px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Styles the website logo */
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--burgundy);
+}
+
+/* Arranges navigation links in a row */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Styles navbar links */
+.nav-links a {
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Changes link colour when mouse moves over it */
+.nav-links a:hover {
+  color: var(--burgundy);
+}
+
+/* Styles the logged-in user's name */
+.nav-user {
+  font-size: 13px;
+  color: var(--burgundy);
+}
+
+/* Sets the main content width and position */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+/* Styles the main home page banner */
+.hero {
+  background: var(--beige);
+  padding: 75px 8%;
+  border-radius: 5px;
+  margin-bottom: 45px;
+  border-left: 5px solid var(--burgundy);
+}
+
+/* Styles the main banner heading */
+.hero h1 {
+  font-size: 40px;
+  line-height: 1.2;
+  margin: 0 0 15px;
+  color: var(--dark-wine);
+}
+
+/* Styles the banner paragraph */
+.hero p {
+  max-width: 520px;
+  color: #66565A;
+  margin-bottom: 25px;
+}
+
+/* Sets the line height for all headings */
+h1, h2, h3 {
+  line-height: 1.3;
+}
+
+/* Styles section headings */
+.section-title {
+  margin: 40px 0 20px;
+  color: var(--dark-wine);
+}
+
+/* Displays products in a responsive grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+/* Styles each product card */
+.card {
+  background: var(--white);
+  border: 1px solid var(--beige);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+/* Adds an effect when hovering over a product card */
+.card:hover {
+  border-color: var(--rose);
+  transform: translateY(-3px);
+}
+
+/* Styles product images */
+.card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  background: var(--beige);
+}
+
+/* Adds space inside the product card */
+.card-body {
+  padding: 18px;
+}
+
+/* Styles product names */
+.card h3 {
+  margin: 0 0 8px;
+  color: var(--dark-wine);
+}
+
+/* Styles product prices */
+.price {
+  font-weight: bold;
+  color: var(--burgundy);
+  font-size: 17px;
+}
+
+/* Styles all buttons and button links */
+button, .btn {
+  border: 0;
+  background: var(--burgundy);
+  color: var(--white);
+  padding: 11px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+  transition: 0.2s;
+}
+
+/* Changes button colour on hover */
+button:hover, .btn:hover {
+  background: var(--dark-wine);
+}
+
+/* Styles light buttons */
+.btn-light {
+  background: var(--beige);
+  color: var(--dark-wine);
+}
+
+/* Changes light button colour on hover */
+.btn-light:hover {
+  background: var(--rose);
+  color: var(--dark-wine);
+}
+
+/* Styles delete or danger buttons */
+.btn-danger {
+  background: #984B4B;
+}
+
+/* Changes danger button colour on hover */
+.btn-danger:hover {
+  background: #743535;
+}
+
+/* Styles input fields, text areas and dropdowns */
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D9C9BD;
+  border-radius: 4px;
+  margin: 5px 0 15px;
+  font: inherit;
+  background: var(--white);
+  color: var(--text);
+}
+
+/* Changes input border when the user clicks on it */
+input:focus, textarea:focus, select:focus {
+  outline: 1px solid var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+/* Styles form labels */
+label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--dark-wine);
+}
+
+/* Styles login, register and other forms */
+.form-box {
+  max-width: 520px;
+  background: var(--white);
+  padding: 30px;
+  border: 1px solid var(--beige);
+  border-top: 4px solid var(--burgundy);
+  border-radius: 5px;
+  margin: 35px auto;
+}
+
+/* Styles form headings */
+.form-box h1 {
+  margin-top: 0;
+  color: var(--dark-wine);
+}
+
+/* Styles notification messages */
+.message {
+  padding: 12px;
+  background: #F0E6DF;
+  color: var(--burgundy);
+  border-radius: 4px;
+  margin: 12px 0;
+}
+
+/* Styles small text */
+.small {
+  font-size: 13px;
+  color: #817477;
+}
+
+/* Allows tables to scroll on smaller screens */
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* Sets the table width and removes space between borders */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+/* Styles table headings and cells */
+th, td {
+  padding: 14px;
+  border-bottom: 1px solid var(--beige);
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Styles table heading row */
+th {
+  background: var(--burgundy);
+  color: var(--white);
+}
+
+/* Styles table data */
+td {
+  color: var(--text);
+}
+
+/* Styles the empty cart message */
+.empty {
+  background: var(--white);
+  padding: 25px;
+  border: 1px solid var(--beige);
+  border-radius: 5px;
+}
+
+/* Styles links inside the empty cart section */
+.empty a {
+  color: var(--burgundy);
+  font-weight: bold;
+}
+
+/* Arranges action buttons in rows */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Styles the website footer */
+footer {
+  background: var(--dark-wine);
+  color: var(--ivory);
+  padding: 40px 6%;
+  margin-top: 60px;
+}
+
+/* Arranges footer content in three columns */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 30px;
+}
+
+/* Styles footer headings */
+footer h3 {
+  color: var(--rose);
+}
+
+/* Styles footer links */
+footer a {
+  display: block;
+  color: var(--ivory);
+  font-size: 14px;
+  margin: 7px 0;
+}
+
+/* Changes footer link colour on hover */
+footer a:hover {
+  color: var(--rose);
+}
+
+/* Styles footer paragraphs */
+footer p {
+  color: #E5D8D3;
+  font-size: 14px;
+}
+
+/* Applies different styles on mobile screens */
+@media (max-width: 650px) {
+
+  /* Adjusts navbar spacing */
+  nav {
+    padding: 15px 5%;
+  }
+
+  /* Reduces space between navigation links */
+  .nav-links {
+    gap: 12px;
+  }
+
+  /* Reduces banner padding */
+  .hero {
+    padding: 45px 7%;
+  }
+
+  /* Reduces banner heading size */
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  /* Displays footer columns one below another */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjusts main content width */
+  .container {
+    width: 92%;
+  }
+
+  /* Reduces form padding */
+  .form-box {
+    padding: 20px;
+  }
+}

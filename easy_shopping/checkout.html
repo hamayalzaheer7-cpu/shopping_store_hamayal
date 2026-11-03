@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete your Easy Shopping order."><title>Checkout</title>
+<link rel="stylesheet" href="style.css"></head><body>
+<div id="navbar"></div><main class="container">
+<form class="form-box" onsubmit="placeOrder(event)">
+<h1>Checkout</h1><p>Your order total: <b id="checkoutTotal">Rs. 0</b></p>
+<label>Phone number</label><input id="phone" required>
+<label>City</label><input id="city" required>
+<label>Delivery address</label><textarea id="address" rows="3" required></textarea>
+<button type="submit">Place order</button>
+</form></main><div id="footer"></div>
+<script src="navbar.js"></script><script src="auth.js"></script><script src="checkout.js"></script>
+</body></html>

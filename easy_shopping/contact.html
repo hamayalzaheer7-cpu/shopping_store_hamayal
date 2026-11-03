@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Sets the character encoding -->
+  <meta charset="UTF-8">
+
+  <!-- Makes the website responsive on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Adds a short description of the page -->
+  <meta name="description" content="Contact Easy Shopping.">
+
+  <title>Contact Us</title>
+
+  <!-- Connects the CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Navbar will be displayed here -->
+  <div id="navbar"></div>
+
+  <main class="container">
+
+    <div class="form-box">
+
+      <h1>Get in touch</h1>
+
+      <p class="small">
+        Have a question about a product or order? Send us a message.
+      </p>
+
+      <!-- Calls sendMessage when the form is submitted -->
+      <form onsubmit="sendMessage(event)">
+
+        <label>Your name</label>
+        <input id="contactName" required>
+
+        <label>Email</label>
+        <input id="contactEmail" type="email" required>
+
+        <label>Message</label>
+        <textarea id="contactMessage" rows="5" required></textarea>
+
+        <button type="submit">Send message</button>
+      </form>
+
+      <!-- Displays the success message -->
+      <p id="sentMessage"></p>
+
+    </div>
+  </main>
+
+  <!-- Footer will be displayed here -->
+  <div id="footer"></div>
+
+  <!-- Connects the navbar JavaScript file -->
+  <script src="navbar.js"></script>
+
+  <script>
+
+    // Saves the customer's message
+    function sendMessage(e) {
+
+      // Prevents the page from reloading
+      e.preventDefault();
+
+      // Gets old messages from LocalStorage
+      // Creates an empty array if no messages exist
+      var messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+      // Adds the new message to the array
+      messages.push({
+        name: contactName.value,
+        email: contactEmail.value,
+        message: contactMessage.value,
+
+        // Saves the current date and time
+        date: new Date().toLocaleString()
+      });
+
+      // Saves all messages in LocalStorage
+      localStorage.setItem("messages", JSON.stringify(messages));
+
+      // Shows a success message
+      document.getElementById("sentMessage").innerText =
+        "Thank you. Your message has been saved.";
+
+      // Clears all form fields
+      e.target.reset();
+    }
+
+  </script>
+
+</body>
+</html>
