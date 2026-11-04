@@ -2,30 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Easy Shopping admin dashboard." />
+
+    <!-- Set the page title -->
     <title>Admin Dashboard</title>
+
+    <!-- Connect the CSS file -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Navbar is added here by navbar.js -->
     <div id="navbar"></div>
+
     <main class="container">
+      <!-- Admin login form -->
       <div id="adminLogin" class="form-box">
         <h1>Admin login</h1>
+
+        <!-- Call adminLogin() when the form is submitted -->
         <form onsubmit="adminLogin(event)">
-          <label>Admin password</label
-          ><input id="adminPassword" type="password" required />
+          <label>Admin password</label>
+          <input id="adminPassword" type="password" required />
           <button type="submit">Login to dashboard</button>
         </form>
+
+        <!-- Show the demo password -->
         <p class="small">Demo password: admin123</p>
       </div>
+
+      <!-- Admin dashboard is hidden until login -->
       <div id="adminPanel" style="display: none">
         <div class="actions">
           <h1>Store dashboard</h1>
+
+          <!-- Log the admin out -->
           <button class="btn-danger" onclick="adminLogout()">
             Admin logout
           </button>
         </div>
+
+        <!-- Display product and order totals -->
         <div class="grid">
           <div class="card card-body">
             <p class="small">Products</p>
@@ -36,16 +53,27 @@
             <h2 id="orderCount">0</h2>
           </div>
         </div>
+
+        <!-- Form to add a new product or edit an existing one -->
         <h2 class="section-title">Add or edit product</h2>
         <form id="productForm" class="form-box" onsubmit="saveProduct(event)">
+          <!-- Store the product ID when editing -->
           <input type="hidden" id="productId" />
-          <label>Product name</label><input id="productName" required />
-          <label>Price</label
-          ><input id="productPrice" type="number" min="1" required />
-          <label>Description</label
-          ><textarea id="productDescription"></textarea>
-          <label>Product image</label
-          ><input id="productImage" type="file" accept="image/*" /><img
+
+          <label>Product name</label>
+          <input id="productName" required />
+
+          <label>Price</label>
+          <input id="productPrice" type="number" min="1" required />
+
+          <label>Description</label>
+          <textarea id="productDescription"></textarea>
+
+          <label>Product image</label>
+          <input id="productImage" type="file" accept="image/*" />
+
+          <!-- Show a preview of the selected image -->
+          <img
             id="imagePreview"
             style="
               display: none;
@@ -55,8 +83,11 @@
               margin-bottom: 12px;
             "
           />
+
           <button type="submit">Save product</button>
         </form>
+
+        <!-- Table where product details are displayed -->
         <h2 class="section-title">Products</h2>
         <div class="table-wrap">
           <table>
@@ -70,6 +101,8 @@
             <tbody id="adminProducts"></tbody>
           </table>
         </div>
+
+        <!-- Table where customer orders are displayed -->
         <h2 class="section-title">Customer orders</h2>
         <div class="table-wrap">
           <table>
@@ -85,6 +118,8 @@
             <tbody id="adminOrders"></tbody>
           </table>
         </div>
+
+        <!-- Table where customer messages are displayed -->
         <h2 class="section-title">Customer messages</h2>
         <div class="table-wrap">
           <table>
@@ -101,9 +136,17 @@
         </div>
       </div>
     </main>
+
+    <!-- Footer is added here by navbar.js -->
     <div id="footer"></div>
+
+    <!-- Load the navbar and footer functions -->
     <script src="navbar.js"></script>
+
+    <!-- Load the admin dashboard functions -->
     <script src="admin.js"></script>
+
+    <!-- Check and display the admin dashboard -->
     <script>
       showAdmin();
     </script>

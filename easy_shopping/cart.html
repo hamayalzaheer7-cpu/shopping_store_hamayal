@@ -1,13 +1,60 @@
-<!doctype html><html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Your personal shopping cart."><title>My Cart</title>
-<link rel="stylesheet" href="style.css"></head><body>
-<div id="navbar"></div><main class="container">
-<h1>My Cart</h1><p class="small">Only items added from your account appear here.</p>
-<div class="table-wrap"><table><thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th></th></tr></thead>
-<tbody id="cartItems"></tbody></table></div>
-<h3>Total: <span id="cartTotal">Rs. 0</span></h3>
-<a class="btn" href="checkout.html">Continue to checkout</a>
-</main><div id="footer"></div>
-<script src="navbar.js"></script><script src="auth.js"></script><script src="cart.js"></script>
-</body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar is added here by navbar.js -->
+  <div id="navbar"></div>
+
+  <main class="container">
+    <!-- Page heading -->
+    <h1>My Cart</h1>
+
+    <!-- Explain that each user has a separate cart -->
+    <p class="small">Only items added from your account appear here.</p>
+
+    <!-- Table where cart items are displayed -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <!-- cart.js adds the cart items here -->
+        <tbody id="cartItems"></tbody>
+      </table>
+    </div>
+
+    <!-- Display the total cart amount -->
+    <h3>Total: <span id="cartTotal">Rs. 0</span></h3>
+
+    <!-- Link to the checkout page -->
+    <a class="btn" href="checkout.html">Continue to checkout</a>
+  </main>
+
+  <!-- Footer is added here by navbar.js -->
+  <div id="footer"></div>
+
+  <!-- Load the navbar and footer functions -->
+  <script src="navbar.js"></script>
+
+  <!-- Load the login and cart helper functions -->
+  <script src="auth.js"></script>
+
+  <!-- Load the cart page functions -->
+  <script src="cart.js"></script>
+</body>
+</html>
